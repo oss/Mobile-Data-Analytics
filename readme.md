@@ -10,7 +10,7 @@ The Rutgers Mobile App collects lots of data, and this project is an effort to g
     - http://antirez.com/news/75
 - consider expansion of data collection to include app interactions (to answer questions like: which bus, what dining hall, etc.)
 - create web dashboard for all data
-
+- look at old stuff https://css-gitlab.rutgers.edu/mobile/server-utils/tree/master
 
 ###Database credentials
 Ask @richton or @indraneel
