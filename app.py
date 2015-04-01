@@ -43,11 +43,13 @@ def monthly_active_users(k):
     pass
 
 def daily_active_users(k):
-    users = {}
+    print "actives with more than ",k,"events"
     print "start\t","end","\t","active"
     print "-----\t","---","\t","------"
     for w in xrange(30):
+	users = {}
 	daily_count = 0
+	uniques = {}
 	start = "2014-07-"+str(w+1)
 	end = "2014-07-"+str(w+2)
 	cur.execute("SELECT uuid, handle from analytics where date between %s and %s", (start,end,))
@@ -57,9 +59,9 @@ def daily_active_users(k):
 	    users[row[0]] += 1
 	    
 	    if users[row[0]] > k:
-		daily_count += 1
-		break
+		if row[0] not in uniques:
+		    uniques[row[0]] = True
 	
-	print start, "\t", end, "\t", str(daily_count)
+	print start, "\t", end, "\t", str(len(uniques))
 
 daily_active_users(3)
