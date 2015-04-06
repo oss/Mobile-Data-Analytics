@@ -1,11 +1,11 @@
-# from flask import Flask, render_template
+from flask import Flask, render_template
 import json
 import MySQLdb
 import datetime 
 import config
 from calendar import monthrange
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 db = MySQLdb.connect(config.host,
 		    config.user,
@@ -13,6 +13,14 @@ db = MySQLdb.connect(config.host,
 		    config.db)
 
 cur = db.cursor()
+
+app.route("/")
+def index():
+    return render_template("index.html")
+
+app.route("/test")
+def test():
+    return "test"
 
 def monthly_unique_users():
     cur.execute("SELECT COUNT(DISTINCT uuid) from analytics")
@@ -70,12 +78,9 @@ def daily_active_users(k):
 	
 	print start, "\t", end, "\t", str(len(uniques))
 
-app.route("/")
-def index():
-    return render_template("index.html")
+# daily_active_users(3)
 
-"""
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
-"""
