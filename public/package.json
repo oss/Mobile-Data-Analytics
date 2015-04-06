@@ -1,0 +1,14 @@
+{
+  "name": "mobile-app-analytics-dashboard",
+  "version": "0.0.0",
+  "description": "dashboard for ru mobile app analytics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OSS",
+  "license": "BSD",
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}
